@@ -1,37 +1,59 @@
+let result = "";
+let playerScore = 0, computerScore = 0;
+
 function computerChoice() {
     let choice = Math.floor(Math.random() * 3) + 1;
     switch (choice) {
-        case 1: return "Rock"; break;
-        case 2: return "Paper"; break;
-        case 3: return "Scissors"; break;
+        case 1: return "rock"; break;
+        case 2: return "paper"; break;
+        case 3: return "scissors"; break;
     }
 }
 
-function playerChoice() {
-    let playerChoice = prompt("What do u choose? Rock, paper or scissors?", "Rock");
-    let playerChoiceLowerCase = playerChoice.toLowerCase();;
-    playerChoice = playerChoice.charAt(0).toUpperCase() + playerChoiceLowerCase.slice(1) 
-    return playerChoice;
-}
+
+const btnRock = document.querySelector(".buttons--rock")
+btnRock.addEventListener("click", () => {playRound("rock", computerChoice())});
+
+const btnPaper = document.querySelector(".buttons--paper")
+btnPaper.addEventListener("click", () => {playRound("paper", computerChoice())});
+
+const btnScissors = document.querySelector(".buttons--scissors")
+btnScissors.addEventListener("click", () => {playRound("scissors", computerChoice())});
+
+const results = document.querySelector(".results");
+const score = document.querySelector(".score")
 
 function playRound(playerChoice, computerChoice) {
     if (playerChoice == computerChoice) {
         result = `It's a draw, you both chose ${playerChoice}`
     } else if (
-        (playerChoice == "Rock" && computerChoice == "Scissors") ||
-        (playerChoice == "Scissors" && computerChoice == "Paper") ||
-        (playerChoice == "Paper" && computerChoice == "Rock")) {
+        (playerChoice == "rock" && computerChoice == "scissors") ||
+        (playerChoice == "scissors" && computerChoice == "paper") ||
+        (playerChoice == "paper" && computerChoice == "rock")) {
             result = `You won! ${playerChoice} beats ${computerChoice}`
-    } else result = `You lost ${playerChoice} loses to ${computerChoice}`
-    return result;
+            ++playerScore
+    } else { result = `You lost ${playerChoice} loses to ${computerChoice}`
+    ++computerScore;
+    } 
+    results.textContent = result;
+    score.textContent = `You: ${playerScore}, Poke: ${computerScore}`
+
+    if (playerScore == 5) {
+        score.textContent = "YOU WON THE GAME! You're safe!"
+    } else if (computerScore == 5) {
+        score.textContent = "POKE WON, run."
+    }
 }
 
- function game() {
+
+
+
+ /* function game() {
     let playerScore = 0;
     let computerScore = 0;
 
     for(i = 0; i < 5; i++) {
-        playRound(playerChoice, computerChoice)
+        playRound(playerChoice(), computerChoice())
         console.log(result)
         if (result.charAt(4) == "w") {
             playerScore++           
@@ -48,6 +70,5 @@ function playRound(playerChoice, computerChoice) {
       console.log("It's a draw")
     }
 }
- 
 
-game();
+*/
