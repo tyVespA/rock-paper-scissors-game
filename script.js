@@ -1,3 +1,6 @@
+/* let result; */
+/* branch test */
+
 function computerChoice() {
     let choice = Math.floor(Math.random() * 3) + 1;
     switch (choice) {
@@ -31,7 +34,7 @@ function playRound(playerChoice, computerChoice) {
     let computerScore = 0;
 
     for(i = 0; i < 5; i++) {
-        playRound(playerChoice, computerChoice)
+        playRound(playerChoice(), computerChoice())
         console.log(result)
         if (result.charAt(4) == "w") {
             playerScore++           
