@@ -24,24 +24,25 @@ function computerChoice() {
 }
 
 function playRound(playerChoice, computerChoice) {
+
     if (playerChoice == computerChoice) {
         result = `It's a draw, you both chose ${playerChoice}`
     } else if (
         (playerChoice == "rock" && computerChoice == "scissors") ||
         (playerChoice == "scissors" && computerChoice == "paper") ||
         (playerChoice == "paper" && computerChoice == "rock")) {
-            result = `You won! ${playerChoice} beats ${computerChoice}`
-            ++playerScore
+            result = `You won! ${playerChoice} beats ${computerChoice}`;
+            ++playerScore;
     } else { 
-        result = `You lost ${playerChoice} loses to ${computerChoice}`
+        result = `You lost ${playerChoice} loses to ${computerChoice}`;
     ++computerScore;
     } 
     results.textContent = result;
-    score.textContent = `You: ${playerScore}, Poke: ${computerScore}`
+    score.textContent = `You: ${playerScore}, Poke: ${computerScore}`;
 
     if (playerScore == 5) {
-        score.textContent = "YOU WON THE GAME! Poke will let you go!"
+        score.textContent = "YOU WON THE GAME! Poke will let you go!";
     } else if (computerScore == 5) {
-        score.textContent = "POKE WON, RUN."
+        score.textContent = "POKE WON, RUN.";
     }
 }
