@@ -16,14 +16,38 @@ function playerChoice() {
 
 function playRound(playerChoice, computerChoice) {
     if (playerChoice == computerChoice) {
-        return `It's a draw, you both chose ${playerChoice}`
+        result = `It's a draw, you both chose ${playerChoice}`
     } else if (
         (playerChoice == "Rock" && computerChoice == "Scissors") ||
         (playerChoice == "Scissors" && computerChoice == "Paper") ||
         (playerChoice == "Paper" && computerChoice == "Rock")) {
-            return `You won! ${playerChoice} beats ${computerChoice}`
-    } else return `You lost ${playerChoice} loses to ${computerChoice}`
+            result = `You won! ${playerChoice} beats ${computerChoice}`
+    } else result = `You lost ${playerChoice} loses to ${computerChoice}`
+    return result;
 }
 
+ function game() {
+    let playerScore = 0;
+    let computerScore = 0;
 
-console.log(playRound(playerChoice(), computerChoice()));
+    for(i = 0; i < 5; i++) {
+        playRound(playerChoice, computerChoice)
+        console.log(result)
+        if (result.charAt(4) == "w") {
+            playerScore++           
+        } else if (result.charAt(4) == "l") {
+            computerScore++         
+        } console.log(`Player score: ${playerScore}, computer score: ${computerScore}`)
+    }
+    console.log("THE FINAL SCORE IS: you " + playerScore + ", computer " + computerScore)
+    if (playerScore > computerScore) {
+      console.log("You won the game")
+    } else if (playerScore < computerScore){
+      console.log("You lost the game")
+    } else {
+      console.log("It's a draw")
+    }
+}
+ 
+
+game();
