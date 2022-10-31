@@ -23,10 +23,19 @@ function computerChoice() {
     }
 }
 
+/* CHANING IMAGE BASED ON computerChoice TEST*/
+
+function updatePortrait(computerChoice) {
+    if (computerChoice == "rock") {
+        portrait.style.backgroundImage = "url(/img/stone.png)";
+    }
+}
+
 function playRound(playerChoice, computerChoice) {
 
     if (playerChoice == computerChoice) {
         result = `It's a draw, you both chose ${playerChoice}`
+        updatePortrait(computerChoice);
     } else if (
         (playerChoice == "rock" && computerChoice == "scissors") ||
         (playerChoice == "scissors" && computerChoice == "paper") ||
