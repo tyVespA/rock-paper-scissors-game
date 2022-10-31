@@ -8,6 +8,9 @@ body, html {
     height: 100vh;
     font-family: 'Amatic SC', cursive;
     font-size: 29px;
+
+    background-color: #181A1B;
+    color: white;
 }
 
 h2 {
@@ -26,8 +29,13 @@ img {
 }
 
 button {
-    max-width: 150px;
-    max-height: 150px;
+    max-width: 140px;
+    max-height: 140px;
+
+    background-color: #2B2A33;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 .smile{
@@ -44,13 +52,15 @@ button {
 
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    
     align-items: center;
 }
 
 .portrait {
-    max-height: 400px;
-    max-width: 400px;
+    background-image: url(./img/poke.png);
+    background-size: cover;
+    height: 350px;
+    width: 350px;
 }
 
 .buttons {
@@ -58,8 +68,12 @@ button {
     gap: 20px;
 }
 
+.results-container {
+    height: 50px;
+}
+
 .results {
-    height: 20px;
     margin-top: 20px;
     margin-bottom: 15px;
 }
+
